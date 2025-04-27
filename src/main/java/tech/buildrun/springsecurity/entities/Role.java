@@ -11,17 +11,17 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
-    private UUID roleId;
+    private Long roleId;
 
     private String name;
 
 
     /*GETTERS AND SETTERS*/
-    public UUID getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(UUID roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 
@@ -33,7 +33,7 @@ public class Role {
         this.name = name;
     }
 
-    public enum Values(){
+    public enum Values{
         ADMIN(1),
         BASIC(2L);
 
