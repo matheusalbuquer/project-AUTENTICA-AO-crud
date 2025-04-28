@@ -1,5 +1,5 @@
 package tech.buildrun.springsecurity.controller.dto;
 
-public record LoginRequest(String username, Strig password) {
+public record LoginRequest(String username, String password) {
 
 }

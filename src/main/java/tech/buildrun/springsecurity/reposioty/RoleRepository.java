@@ -6,4 +6,6 @@ import tech.buildrun.springsecurity.entities.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
+
+    Role findByName(String name);
 }
