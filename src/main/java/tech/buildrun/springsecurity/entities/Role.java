@@ -1,8 +1,7 @@
 package tech.buildrun.springsecurity.entities;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
+import java.util.Set;
 
 @Entity
 @Table(name= "tb_roles")
@@ -15,6 +14,8 @@ public class Role {
 
     private String name;
 
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
     /*GETTERS AND SETTERS*/
     public Long getRoleId() {
@@ -33,14 +34,21 @@ public class Role {
         this.name = name;
     }
 
-    public enum Values{
-        ADMIN(1),
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public enum Values {
+        ADMIN(1L),
         BASIC(2L);
 
+        private final long roleId;
 
-        long roleId;
-
-        Values(long roleId){
+        Values(long roleId) {
             this.roleId = roleId;
         }
 
@@ -48,5 +56,4 @@ public class Role {
             return roleId;
         }
     }
-
 }
