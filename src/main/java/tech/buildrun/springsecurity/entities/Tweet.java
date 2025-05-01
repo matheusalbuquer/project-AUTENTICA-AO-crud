@@ -11,19 +11,17 @@ public class Tweet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "tweet_id") // Corrigi aqui também: padronizar para minúsculo
+    @Column(name = "tweet_id")
     private Long tweetId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id") // Corrigido
+    @JoinColumn(name = "user_id")
     private User user;
 
-    private String context;
+    private String content;
 
     @CreationTimestamp
     private Instant creationTimestamp;
-
-    /* GETTERS AND SETTERS */
 
     public Long getTweetId() {
         return tweetId;
@@ -41,12 +39,12 @@ public class Tweet {
         this.user = user;
     }
 
-    public String getContext() {
-        return context;
+    public String getContent() {
+        return content;
     }
 
-    public void setContext(String context) {
-        this.context = context;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Instant getCreationTimestamp() {
